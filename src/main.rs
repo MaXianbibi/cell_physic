@@ -50,28 +50,26 @@ async fn main() {
 
 
         draw_back(&grid);
-
         cell_map.draw_cells();
 
 
 
-        if get_time() - last_update_time >= update_interval {
-            // cell_map.add_light();
-
-            if is_mouse_button_down(MouseButton::Left) {
-                let (x, y) = mouse_position();
-                cell_map.fill_circle(x as u32, y as u32, 100); 
-
-            }
-
-
-
-
-
-            cell_map.process();
-            last_update_time = get_time();
-        }
+        process(&mut cell_map, &mut last_update_time, update_interval);
 
         next_frame().await;
+    }
+}
+
+
+
+fn process(cell_map: &mut CellMap, last_update_time: &mut f64, update_interval: f64) {
+    if get_time() - *last_update_time >= update_interval {
+        if is_mouse_button_down(MouseButton::Left) {
+            let (x, y) = mouse_position();
+            cell_map.fill_circle(x as u32, y as u32, 100);
+        }
+
+        cell_map.process();
+        *last_update_time = get_time();
     }
 }
