@@ -30,7 +30,7 @@ async fn main() {
     next_frame().await;
 
     let mut last_update_time = get_time();
-    let update_interval = 1.0 / 60.0; // 5 fois par seconde
+    let update_interval = 1.0 / 60.0; 
 
 
 
@@ -60,7 +60,7 @@ async fn main() {
 
             if is_mouse_button_down(MouseButton::Left) {
                 let (x, y) = mouse_position();
-                cell_map.fill_circle(x as u32, y as u32, 100);  // Ajout du point-virgule ici
+                cell_map.fill_circle(x as u32, y as u32, 100); 
 
             }
 
