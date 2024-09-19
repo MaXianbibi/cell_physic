@@ -4,7 +4,7 @@ use macroquad::rand::gen_range;
 
 const CELLS_COLOR: Color = Color::new(255.0, 0.0, 0.0, 1.0);
 
-#[derive(Clone, Copy, PartialEq)] // Ajout des traits Clone, Copy et PartialEq
+#[derive(Clone, Copy, PartialEq)] 
 pub enum CellState {
     EMPTY,
     FILLED,
